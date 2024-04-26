@@ -34,6 +34,9 @@ let rec maxargs stm =
   | Assign (_, exp) ->
     maxargs_exp exp
 
+(* TODO: Intepretation function *)
+let rec interp stm = 10
+
 (* Example AST represantation in Ocaml *)
 let stm = Compound(
   Assign("a", Op(Num 5, Plus, Num 3)),
