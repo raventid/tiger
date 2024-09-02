@@ -8,8 +8,7 @@ type binop = Plus | Minus | Times | Div
 type stm = Compound of stm * stm
          | Assign of id * exp
          | Print of exp list
-
- and exp = Id of id
+and exp = Id of id
          | Num of int
          | Op of exp * binop * exp
          | Eseq of stm * exp
@@ -35,7 +34,29 @@ let rec maxargs stm =
     maxargs_exp exp
 
 (* TODO: Intepretation function *)
-let rec interp stm = 10
+let interp stm = interp_stm stm init_env
+
+let rec interp_stm stm env =
+  match stm with
+  | Compound (stm1, stm2) -> failwith "Invalid operation or operands"
+  | Assign (id, exp) -> failwith "Invalid operation or operands"
+  | Print expressions ->
+
+and interp_exp exp env =
+  match exp with
+  | Id id -> failwith "Invalid operation or operands"
+  | Num int -> int
+  | Op (exp1, binop, exp2) -> (
+    match binop with
+    | Plus -> (interp_exp exp1 env) + (interp_exp exp2 env)
+    | Minus -> (interp_exp exp1 env) - (interp_exp exp2 env)
+    | Times -> (interp_exp exp1 env) + (interp_exp exp2 env)
+    | Div -> (interp_exp exp1 env) + (interp_exp exp2 env))
+  | Eseq (stm, exp) -> failwith "Invalid operation or operands"
+
+let init_env = let env = Hashtbl.create 16 in env
+
+let unit_test_interp = ( interp Print(Op(Num 10, Plus, Num 10)) ) == 20
 
 (* Example AST represantation in Ocaml *)
 let stm = Compound(
