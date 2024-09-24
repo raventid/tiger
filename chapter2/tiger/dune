@@ -3,6 +3,6 @@
 
 (executable
  (name driver)
- (libraries core stdio))
+ (libraries core stdio core_unix.command_unix))
 
 (env (dev (flags (:standard -warn-error -A))))
