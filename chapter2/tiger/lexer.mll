@@ -17,7 +17,7 @@ let white = [' ' '\t']+
 let newline = '\r' | '\n' | "\r\n"
 
 let alphanum = ['a'-'z' 'A'-'Z' '0'-'9' '_']
-let id = ['a'-'z'] alphanum*
+let id = ['a'-'z' 'A'-'Z'] alphanum*
 
 (* Lexing rules *)
 
