@@ -16,7 +16,9 @@ wget -r -np -nc -A "*.tig" https://www.cs.princeton.edu/~appel/modern/testcases/
 Calling a lexer with an 8-queen solution
 
 ``` sh
-make ch2_lexer FILE=chapter2/tiger/queens.tig
+make ch2_lexer FILE=shared/sources/queens.tig
 ```
 
 ## Chapter 3
+
+To preprocess Tiger source code files I use a bash one linear which uses lexer implentation from Chapter2
