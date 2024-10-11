@@ -85,7 +85,7 @@ let show = function
     | SEMICOLON        ->     "SEMICOLON"
     | COLON            ->     "COLON"
     | COMMA            ->     "COMMA"
-    | STRING _ ->     "STRING"
-    | INT _ -> "INT"
-    | ID _  -> "ID"
+    | STRING content ->     "STRING:" ^ content
+    | INT content -> "INT:" ^ string_of_int content
+    | ID content  -> "ID:" ^ content
     | EOF -> "EOF"
