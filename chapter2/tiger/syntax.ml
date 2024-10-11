@@ -44,6 +44,20 @@ type token =
     | ID of string
     | EOF
 
+let escape_char = function
+  | '\n' -> "\\n"
+  | '\r' -> "\\r"
+  | '\t' -> "\\t"
+  | '\\' -> "\\\\"
+  | '\"' -> "\\\""
+  | character -> String.make 1 character
+
+let escape_string string =
+  String.to_seq string
+  |> Seq.map escape_char
+  |> List.of_seq
+  |> String.concat ""
+
 let show = function
     | TYPE             ->     "TYPE"
     | VAR              ->     "VAR"
@@ -85,7 +99,7 @@ let show = function
     | SEMICOLON        ->     "SEMICOLON"
     | COLON            ->     "COLON"
     | COMMA            ->     "COMMA"
-    | STRING content ->     "STRING:" ^ content
+    | STRING content ->     "STRING:" ^ escape_string content
     | INT content -> "INT:" ^ string_of_int content
     | ID content  -> "ID:" ^ content
     | EOF -> "EOF"
