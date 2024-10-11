@@ -1,8 +1,9 @@
-# tiger
+# Tiger
 
-Just another implementation of tiger programming language in Ocaml
+Just another implementation of tiger programming language in Ocaml.
+Repo is structured to implement a language step by step.
 
-Repo is structured to implement a langauge step by step.
+Every Chapter directory contains a tiger subdirectory to hold the progress over language implementation itself. Other files are just some sketches and exercises from the chapter.
 
 
 Download tiger program samples:
