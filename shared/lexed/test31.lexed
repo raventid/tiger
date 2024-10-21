@@ -1,0 +1,11 @@
+LET
+VAR
+ID:a
+COLON
+ID:int
+ASSIGN
+STRING: 
+IN
+ID:a
+END
+EOF

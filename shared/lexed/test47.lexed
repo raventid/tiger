@@ -1,0 +1,17 @@
+LET
+TYPE
+ID:a
+EQ
+ID:int
+VAR
+ID:b
+ASSIGN
+INT:4
+TYPE
+ID:a
+EQ
+ID:string
+IN
+INT:0
+END
+EOF

@@ -1,0 +1,11 @@
+LET
+VAR
+ID:d
+ASSIGN
+INT:0
+IN
+ID:d
+DOT
+ID:f
+END
+EOF

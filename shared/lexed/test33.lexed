@@ -1,0 +1,11 @@
+LET
+VAR
+ID:a
+ASSIGN
+ID:rectype
+LBRACE
+RBRACE
+IN
+INT:0
+END
+EOF

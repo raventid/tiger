@@ -1,0 +1,13 @@
+LET
+TYPE
+ID:a
+EQ
+ID:int
+TYPE
+ID:a
+EQ
+ID:string
+IN
+INT:0
+END
+EOF
