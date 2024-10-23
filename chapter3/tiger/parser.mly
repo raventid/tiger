@@ -75,12 +75,10 @@
 %left     "+" "-"
 %left     "*" "/"
 
-%start <unit> main
-
+%start <unit> parse
 %%
 
-let main :=
-  ~ = expr; EOF; <>
+let parse := ~ = expr; EOF; <>
 
 /* EXPRESSIONS */
 /* EVERYTHING RELATED TO EXPRESSIONS IN A LANGUAGE */
