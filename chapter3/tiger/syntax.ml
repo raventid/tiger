@@ -90,6 +90,52 @@ let to_parser = function
   | ID s -> Parser.ID s
   | EOF -> Parser.EOF
 
+let from_parser = function
+  | Parser.TYPE -> TYPE
+  | Parser.VAR -> VAR
+  | Parser.FUNCTION -> FUNCTION
+  | Parser.BREAK -> BREAK
+  | Parser.OF -> OF
+  | Parser.END -> END
+  | Parser.IN -> IN
+  | Parser.NIL -> NIL
+  | Parser.LET -> LET
+  | Parser.DO -> DO
+  | Parser.TO -> TO
+  | Parser.FOR -> FOR
+  | Parser.WHILE -> WHILE
+  | Parser.ELSE -> ELSE
+  | Parser.THEN -> THEN
+  | Parser.IF -> IF
+  | Parser.ARRAY -> ARRAY
+  | Parser.ASSIGN -> ASSIGN
+  | Parser.OR -> OR
+  | Parser.AND -> AND
+  | Parser.GE -> GE
+  | Parser.GT -> GT
+  | Parser.LE -> LE
+  | Parser.LT -> LT
+  | Parser.NEQ -> NEQ
+  | Parser.EQ -> EQ
+  | Parser.DIVIDE -> DIVIDE
+  | Parser.TIMES -> TIMES
+  | Parser.MINUS -> MINUS
+  | Parser.PLUS -> PLUS
+  | Parser.DOT -> DOT
+  | Parser.RBRACE -> RBRACE
+  | Parser.LBRACE -> LBRACE
+  | Parser.RBRACK -> RBRACK
+  | Parser.LBRACK -> LBRACK
+  | Parser.RPAREN -> RPAREN
+  | Parser.LPAREN -> LPAREN
+  | Parser.SEMICOLON -> SEMICOLON
+  | Parser.COLON -> COLON
+  | Parser.COMMA -> COMMA
+  | Parser.STRING s -> STRING s
+  | Parser.INT i -> INT i
+  | Parser.ID s -> ID s
+  | Parser.EOF -> EOF
+
 let escape_char = function
   | '\n' -> "\\n"
   | '\r' -> "\\r"
