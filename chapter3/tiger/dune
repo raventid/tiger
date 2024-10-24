@@ -2,9 +2,6 @@
  (modules parser)
  (flags ("--dump")))
 
-(ocamllex
- (modules lexer))
-
 (executable
  (name driver)
  (libraries core stdio core_unix.command_unix menhirLib))
