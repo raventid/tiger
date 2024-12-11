@@ -1,0 +1,17 @@
+(menhir
+ (modules parser)
+ (flags ("--dump")))
+
+(ocamllex
+ (modules lexer))
+
+; (executable
+;  (name driver)
+;  (libraries core stdio core_unix.command_unix menhirLib))
+
+(library
+ (name ch4)
+ (libraries core stdio core_kernel)
+ (preprocess (pps ppx_deriving.show ppx_compare ppx_hash ppx_sexp_conv)))
+
+(env (dev (flags (:standard -warn-error -A))))
