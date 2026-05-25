@@ -1,0 +1,12 @@
+title: "Introduction"
+
+In the beginning of the chapter one there is a paragraph saying:
+
+"The interfaces between modules of the compiler are almost as important
+as the algorithms inside the modules. To describe the interfaces concretely,
+it is useful to write them down in a real programming language. This book
+uses ML - a strict, statically typed functional programming language with
+modular structure. ML is well suited to many applications, but compiler im-
+plementation in particular seems to hit all of its strong points..."
+
+I will remind you that our companion guide will use Ocaml lanugage of the same family, but some of the SML features presented in the book are not available to us in the same way, so we will substitute them with similar feature or workaround if possible.
