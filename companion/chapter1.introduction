@@ -105,3 +105,49 @@ module X = A.G.X
 module Y = B.Y
 module Z = C.Z
 ```
+
+
+
+
+Straight-Line program interpreter (exercise)
+
+For the first exercise we are providing you with this Ocaml base version of the code.
+As this companion guide is using Ocaml instead of the SML we would suggest you to practice Ocaml and implement this program in it.
+
+```ocaml
+let prog =
+  CompoundStm (
+    AssignStm ("a", OpExp (NumExp 5, Plus, NumExp 3)),
+    CompoundStm (
+      AssignStm ("b",
+        EseqExp (
+          PrintStm [IdExp "a"; OpExp (IdExp "a", Minus, NumExp 1)],
+          OpExp (NumExp 10, Times, IdExp "a"))),
+      PrintStm [IdExp "b"]))
+```
+
+Now, book asks us to implement some code. As this is a companion book, the imlplementation here will follow immediately after the exercise, so be careful and try to solve the problem first, before looking at the solution.
+
+1. Write an ML function (maxargs : s t m ^ i n t ) that tells the maximum
+number of arguments of any p r i n t statement within any subexpression of
+a given statement. For example, maxargs (prog) is 2.
+
+2. Write an ML function i n t e r p : s t m ^ u n i t that "interprets" a program
+in this language. To write in a "functional" style - without assignment (: =) or
+arrays - maintain a list of (variable,integer) pairs, and produce new versions
+of this list at each As s ignS tm.
+
+
+
+
+
+TODO:
+ - first solution
+ - second solution
+
+
+
+
+Chapter exercises:
+
+TODO
