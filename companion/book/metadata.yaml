@@ -1,0 +1,19 @@
+---
+title: "Modern Compiler Implementation — A Companion Guide"
+subtitle: "Implementing the Tiger language in OCaml"
+author: "Julian"
+date: "2026"
+lang: en-US
+documentclass: book
+toc: true
+toc-depth: 2
+numbersections: true
+geometry:
+  - margin=1in
+fontsize: 11pt
+linkcolor: blue
+urlcolor: blue
+# Syntax highlighting for fenced code blocks (```ocaml, ```sh, ...).
+# Run `pandoc --list-highlight-styles` to see the alternatives.
+highlight-style: tango
+---
