@@ -5,6 +5,11 @@ The first real task of a compiler is to break the source file into a stream of
 called *lexical analysis* (or *lexing*), and it is the subject of Chapter 2 in
 the original book.
 
+As Appel writes:
+"...It would unduly complicate the parser to have to
+account for possible white space and comments at every possible point; this
+is the main reason for separating lexical analysis from parsing...". Take notes.
+
 In the companion we build the lexer for Tiger in OCaml. Where the original text
 uses ML-Lex, we use OCaml's `ocamllex` together with Menhir for the parser in
 later chapters.
