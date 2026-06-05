@@ -14,6 +14,8 @@ In the companion we build the lexer for Tiger in OCaml. Where the original text
 uses ML-Lex, we use OCaml's `ocamllex` together with Menhir for the parser in
 later chapters.
 
+I will also show you how to separate `ocamllex` and `menhir`, and why you might want to do this.
+
 ## 2.1 Lexical tokens
 
 A token is a sequence of characters treated as a unit by the grammar of the
