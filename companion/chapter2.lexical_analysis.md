@@ -11,10 +11,10 @@ account for possible white space and comments at every possible point; this
 is the main reason for separating lexical analysis from parsing...". Take notes.
 
 In the companion we build the lexer for Tiger in OCaml. Where the original text
-uses ML-Lex, we use OCaml's `ocamllex` together with Menhir for the parser in
+uses ML-Lex, we use OCaml's `ocamllex` together with `Menhir` for the parser in
 later chapters.
 
-I will also show you how to separate `ocamllex` and `menhir`, and why you might want to do this.
+I will also show you how to separate `ocamllex` and `menhir` ouputs, and why you might want to do this. And not many people know how to do it, so you can flex!
 
 ## 2.1 Lexical tokens
 
