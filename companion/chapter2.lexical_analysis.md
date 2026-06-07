@@ -19,7 +19,7 @@ I will also show you how to separate `ocamllex` and `menhir` ouputs, and why you
 ## 2.1 Lexical tokens
 
 A token is a sequence of characters treated as a unit by the grammar of the
-language. The Tiger lexer recognises tokens such as:
+language. So, this is like an atomic object, you cannot divide it and make it smaller. The Tiger lexer recognises tokens such as:
 
 ```text
 ID      foo bar baz
