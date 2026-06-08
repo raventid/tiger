@@ -29,6 +29,15 @@ keywords  if then else while for to do let in end
 symbols   ( ) [ ] { } : := . , ; + - * / = <> < <= > >=
 ```
 
+Tokens like `class` are called reserved words. There are also non-tokens:
+```
+comment /* try again */
+preprocessor directive #include<stdio. h >
+preprocessor directive # define NUM S 5 , 6
+macro NUMS
+blanks, tabs, and newlines
+```
+
 ## 2.2 Running the lexer
 
 You can run the Chapter 2 lexer over a sample Tiger program — for example the
