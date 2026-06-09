@@ -38,6 +38,10 @@ macro NUMS
 blanks, tabs, and newlines
 ```
 
+This chapter also goes deep into mathematical connection of regular expressions and deterministic finite automata.
+I will touch this briefly, but if it does not click for you, you can try to watch youtube video with a more visual
+explanation of the same topic **TODO:**
+
 ## 2.2 Running the lexer
 
 You can run the Chapter 2 lexer over a sample Tiger program — for example the
