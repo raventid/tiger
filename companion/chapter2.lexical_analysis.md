@@ -42,6 +42,11 @@ This chapter also goes deep into mathematical connection of regular expressions 
 I will touch this briefly, but if it does not click for you, you can try to watch youtube video with a more visual
 explanation of the same topic **TODO:**
 
+What you should capture from this chapter is understanding that core regular expression lanugage is very small, there are a lot of extensions, but the core
+itself is tiny.
+
+In modern compiler design lexing and parsing is considered to be a solved problem. We know enough datastructures and algorithms to implement optimal solutions for any lexing or parsing tasks. Because of this I do not recommend you (unless you want) to focus and get stuck on early chapters. I personally see lexing and parsing as a boring machinery to get to the things we care about (optimizations, code generation) later.
+
 ## 2.2 Running the lexer
 
 You can run the Chapter 2 lexer over a sample Tiger program — for example the
