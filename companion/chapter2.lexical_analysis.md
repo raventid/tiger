@@ -48,6 +48,11 @@ itself is tiny.
 In modern compiler design lexing and parsing is considered to be a solved problem. We know enough datastructures and algorithms to implement optimal solutions for any lexing or parsing tasks. Because of this I do not recommend you (unless you want) to focus and get stuck on early chapters. I personally see lexing and parsing as a boring machinery to get to the things we care about (optimizations, code generation) later.
 
 (**TODO: elaborate on picture 2.4 and give explanation to the matrix form?**)
+Picture 2.4 in the book shows how to connect small regular expressions schemas into one big machine, we will need this to write code, so it is an important concept!
+
+full TABLE GOES HERE.
+
+I extended this table to cover the whole automaton on the picture 2.4. I hope now you can see that this is just one of possible encodings that explicitly connects every transition with every node. Think how can you encode this in programming language? Maybe create a big state machine and give it one token after another one?
 
 ## 2.2 Running the lexer
 
