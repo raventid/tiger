@@ -50,9 +50,33 @@ In modern compiler design lexing and parsing is considered to be a solved proble
 (**TODO: elaborate on picture 2.4 and give explanation to the matrix form?**)
 Picture 2.4 in the book shows how to connect small regular expressions schemas into one big machine, we will need this to write code, so it is an important concept!
 
-full TABLE GOES HERE.
+Book also shows you the representation of this automaton in table form which I extended to be full. If you want to feel, how transitioning are happening you can load this table and travel through it.
 
-I extended this table to cover the whole automaton on the picture 2.4. I hope now you can see that this is just one of possible encodings that explicitly connects every transition with every node. Think how can you encode this in programming language? Maybe create a big state machine and give it one token after another one?
+```ocaml
+(* Combined finite automaton from Figure 2.4 -- full transition table.
+   Rows are states 0..13.  A 0 entry means "no transition" (dead state).
+   "ot" = any other character (anything not given its own column). *)
+
+let edges : int array array =
+  [|
+  (*                sp  \n   .   -   0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f   g   h   i   j   k   l   m   n   o   p   q   r   s   t   u   v   w   x   y   z  ot *)
+  (* state  0 *) [|  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state  1 *) [| 12; 12;  5;  9;  7;  7;  7;  7;  7;  7;  7;  7;  7;  7;  4;  4;  4;  4;  4;  4;  4;  4;  2;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4; 13 |];
+  (* state  2 *) [|  0;  0;  0;  0;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  3;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  0 |];
+  (* state  3 *) [|  0;  0;  0;  0;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  0 |];
+  (* state  4 *) [|  0;  0;  0;  0;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  0 |];
+  (* state  5 *) [|  0;  0;  0;  0;  6;  6;  6;  6;  6;  6;  6;  6;  6;  6;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state  6 *) [|  0;  0;  0;  0;  6;  6;  6;  6;  6;  6;  6;  6;  6;  6;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state  7 *) [|  0;  0;  8;  0;  7;  7;  7;  7;  7;  7;  7;  7;  7;  7;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state  8 *) [|  0;  0;  0;  0;  8;  8;  8;  8;  8;  8;  8;  8;  8;  8;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state  9 *) [|  0;  0;  0; 10;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state 10 *) [|  0; 11;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10; 10;  0 |];
+  (* state 11 *) [|  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state 12 *) [| 12; 12;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  (* state 13 *) [|  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
+  |]
+```
+
 
 ## 2.2 Running the lexer
 
