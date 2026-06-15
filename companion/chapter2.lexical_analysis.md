@@ -57,9 +57,10 @@ Book also shows you the representation of this automaton in table form which I e
    Rows are states 0..13.  A 0 entry means "no transition" (dead state).
    "ot" = any other character (anything not given its own column). *)
 
-let edges : int array array =
+  let edges : int array array =
   [|
-  (*                sp  \n   .   -   0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f   g   h   i   j   k   l   m   n   o   p   q   r   s   t   u   v   w   x   y   z  ot *)
+  (* col idx:        0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40 *)
+  (* char:          sp  \n   .   -   0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f   g   h   i   j   k   l   m   n   o   p   q   r   s   t   u   v   w   x   y   z  ot *)
   (* state  0 *) [|  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
   (* state  1 *) [| 12; 12;  5;  9;  7;  7;  7;  7;  7;  7;  7;  7;  7;  7;  4;  4;  4;  4;  4;  4;  4;  4;  2;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4; 13 |];
   (* state  2 *) [|  0;  0;  0;  0;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  3;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  4;  0 |];
@@ -75,6 +76,18 @@ let edges : int array array =
   (* state 12 *) [| 12; 12;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
   (* state 13 *) [|  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0;  0 |];
   |]
+```
+
+You can play around this table by using Ocaml arrays:
+```ocaml
+state = 1
+'j' : edges.(1).(23) = 4    (* not 'i', so the generic-letter edge → 4 *)
+'u' : edges.(4).(34) = 4    (* state 4 loops on every letter/digit *)
+'l' : edges.(4).(25) = 4
+'i' : edges.(4).(22) = 4
+'a' : edges.(4).(14) = 4
+'n' : edges.(4).(27) = 4
+end : state 4  →  ACCEPT as IDENTIFIER
 ```
 
 
