@@ -78,7 +78,10 @@ Book also shows you the representation of this automaton in table form which I e
   |]
 ```
 
-You can play around this table by using Ocaml arrays:
+You can play around this table by using Ocaml arrays. 
+
+You start at the State 1, this is an initial state. State 0 or just 0 in one of the row/column means that we consumed the token and next symbol belong to something else.
+The whole idea is to answer the question if given string belongs to our language. (Same question as for regular expression, because regular expression is just another form of the table above!)
 ```ocaml
 state = 1
 'j' : edges.(1).(23) = 4    (* not 'i', so the generic-letter edge → 4 *)
