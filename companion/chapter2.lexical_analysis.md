@@ -82,6 +82,8 @@ You can play around this table by using Ocaml arrays.
 
 You start at the State 1, this is an initial state. State 0 or just 0 in one of the row/column means that we consumed the token and next symbol belong to something else.
 The whole idea is to answer the question if given string belongs to our language. (Same question as for regular expression, because regular expression is just another form of the table above!)
+
+To answer the question if string "julian" belongs to our language we can follow our table like this:
 ```ocaml
 state = 1
 'j' : edges.(1).(23) = 4    (* not 'i', so the generic-letter edge → 4 *)
@@ -92,7 +94,35 @@ state = 1
 'n' : edges.(4).(27) = 4
 end : state 4  →  ACCEPT as IDENTIFIER
 ```
+To fully implement lexer we need to have additional machinery, we can run lexer in loop and track the cursor. All we have to do in the loop is to repeatedly call a procedure that will jump through the table above.
+Is it how real lexers work? It could be! But some other use slightly different mechanicks, but we will not focus on this too much here.
 
+
+By looking at the table above you can follow FIGURE 2.5 from the book and see how full lexer pass would look like.
+
+## 2.4 NONDETERMNISTIC FINITE AUTOMATA
+Epsilon node allows us to make a nondeterminist choice or just a choice. If in the table above we have only one way to go from the one cell, now we can have 2!
+
+There important quality of epsilon transition is that we can use it any time we want to express idea of transition to another state without consuming an input, let me bring an example.
+
+Nondeterministic automata are a useful notion because it is easy to convert a (static, declarative) regular expression to a (simulatable, quasi-executable) NFA. (quoting the book)
+
+tail - start edge
+head - ending state
+
+
+How to convert regex to NFA you can also watch in a very good tutorial by Easy Theory - https://www.youtube.com/watch?v=VbR1mGdP99s
+
+computation of epsilon-closure means there are no states reachable without eating the first character of the input left.
+
+### Converting an NFA to DFA
+
+Book shows you algebraic and logical structure of NFA to DFA convertion, but I personally find it beneficial to see a visual transformation, so let's watch one more video - https://www.youtube.com/watch?v=SCdsgVT6Ktw
+
+## 2.5 A lexical analyzer generator
+Book will talk about ml-lex a SML library to produce a lexer from a lexical specification.
+
+As in this guide we are using Ocaml instead of the SML I will give you a brief introduction to ocamllex - the library we can use to write lexer for our language.
 
 ## 2.2 Running the lexer
 
@@ -108,4 +138,17 @@ make ch2_lexer FILE=shared/sources/queens.tig
 
 ## Chapter exercises
 
-> **TODO** — to be written.
+I have an implementation of a lexer for sure, but just copy pasting it is not very fun, try to come up with your own and use LLM to study more about ocamllex and how it should be used.
+
+To make sure a knowledge will stick to your memory, let's do some exercises without an LLM.
+
+
+
+
+For each of the following, explain why you're not surprised that there is no
+regular expression defining it.
+a. Strings of a's and b's where there are more a's than b's.
+b. Strings of a's and b's that are palindromes (the same forward as backward).
+c. Syntactically correct ML programs.
+
+All these group of questions talking about sequence of characters maintaining some invariant. We can express patterns in regular expressions, but we cannot analyze semantics (c.) or build regexp that support logical connections between elements (a, b)
